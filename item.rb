@@ -11,11 +11,7 @@ class Item
   end
 
   def move_to_archive
-    if can_be_archived?
-      @archived = true
-    else
-      puts 'Item is already archived'
-    end
+    @archived = true if can_be_archived?
   end
 
   private

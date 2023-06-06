@@ -25,51 +25,51 @@ class Choice
   end
 
   def list_books
-    puts '1 - List all books'
+    puts 'List all books'
   end
 
   def list_music_albums
-    puts '2 - List all music albums'
+    puts 'List all music albums'
   end
 
   def list_movies
-    puts '3 - List all movies'
+    puts 'List all movies'
   end
 
   def list_games
-    puts '4 - List all games'
+    puts 'List all games'
   end
 
   def list_genres
-    puts '5 - List all genres'
+    puts 'List all genres'
   end
 
   def list_labels
-    puts '6 - List all labels'
+    puts 'List all labels'
   end
 
   def list_authors
-    puts '7 - List all authors'
+    puts 'List all authors'
   end
 
   def list_sources
-    puts '8 - List all sources'
+    puts 'List all sources'
   end
 
   def add_book
-    puts '9 - Add a book'
+    puts 'Add a book'
   end
 
   def add_music_album
-    puts '10 - Add a music album'
+    puts 'Add a music album'
   end
 
   def add_movie
-    puts '11 - Add a movie'
+    puts 'Add a movie'
   end
 
   def add_game
-    puts '12 - Add a game'
+    puts 'Add a game'
   end
 
   def exit

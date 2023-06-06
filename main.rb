@@ -2,8 +2,6 @@ require_relative 'item'
 require_relative 'options'
 require_relative 'choice'
 
-# main.rb file code goes here
-
 class Main
   def initialize
     @item = Item.new('12/15/2000', false)

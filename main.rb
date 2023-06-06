@@ -1,1 +1,3 @@
-# main.rb file code goes here
+class Main
+
+end

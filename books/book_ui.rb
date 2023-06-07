@@ -3,13 +3,13 @@ require_relative 'label'
 require 'json'
 
 class BookActions
-  FILE_PATH = './json_data/books.json'.freeze
+  FILE_PATH = "#{__dir__}/../json_data/books.json".freeze
 
   attr_accessor :books
 
   def initialize(file: FILE_PATH)
     @file = file
-    @books = load_books
+    @books = load_books || []
   end
 
   def list_books
@@ -18,25 +18,25 @@ class BookActions
     else
       puts "\n--------------- Book Info ---------------"
       @books.each do |book|
-        puts "Title: #{book['title']}"
-        puts "Publisher: #{book['publisher']}"
-        puts "Cover State: #{book['cover_state']}"
-        puts "Publish Date: #{book['publish_date']}"
+        puts "Title: #{book.title}"
+        puts "Publisher: #{book.publisher}"
+        puts "Cover State: #{book.cover_state}"
+        puts "Publish Date: #{book.publish_date}"
         puts '------------------------------------------'
       end
     end
   end
 
   def list_labels
-    labels = @books.map { |book| book['label'] }.compact.uniq
+    labels = @books.map(&:label).uniq
     puts "\n--------------- Label Info ---------------"
 
     if labels.empty?
       puts 'No labels found!'
     else
       labels.each do |label|
-        name = label[:name] || label['name']
-        color = label[:color] || label['color']
+        name = label[:name] || label.name
+        color = label[:color] || label.color
         puts "Color: #{color} - Name: #{name}"
         puts '------------------------------------------'
       end
@@ -67,7 +67,7 @@ class BookActions
 
     book = Book.new(title, publish_date, publisher, cover_state == 'g' ? 'good' : 'bad')
     book.label = Label.new(1, name, color)
-    @books << {'title'=> book.title, 'publish_date' => book.publish_date, 'publisher' => book.publisher, 'cover_state' => book.cover_state}
+    @books << book
 
     puts '------------------------------------------', 'Book added successfully'
     save_books
@@ -77,12 +77,18 @@ class BookActions
     return [] unless File.exist?(@file) && !File.empty?(@file)
 
     begin
-      File.open(@file, 'r') do |file|
-        book_file = file.read
-        @books = []
-        JSON.parse(book_file).each do |book|
-            @books << Book.new(book['title'], book['publish_date'], book['publisher'], book['cover_state'])
-        end
+      json_data = File.read(@file)
+      books_data = JSON.parse(json_data, symbolize_names: true)
+      return [] unless books_data.is_a?(Array)
+
+      books_data.map do |book|
+        Book.new(
+          book[:title],
+          book[:publish_date],
+          book[:publisher],
+          book[:cover_state],
+          label: book[:label]
+        )
       end
     rescue Errno::ENOENT, JSON::ParserError => e
       puts "An error occurred while trying to load books: #{e.message}"
@@ -92,21 +98,16 @@ class BookActions
 
   def save_books
     books_json = @books.map do |book|
-      label_data = book.is_a?(Book) && book.label.is_a?(Label) ? { name: book.label.name, color: book.label.color } : book[:label]
+      label_data = book.label.is_a?(Label) ? { name: book.label.name, color: book.label.color } : book.label
       {
-        title: book[:title],
-        publish_date: book[:publish_date],
-        publisher: book[:publisher],
-        cover_state: book[:cover_state],
+        title: book.title,
+        publish_date: book.publish_date,
+        publisher: book.publisher,
+        cover_state: book.cover_state,
         label: label_data
       }
     end
 
-    File.open('books.json', 'w') do |f|
-      f.write(JSON.pretty_generate(books_json))
-    end
-
-    puts 'Books saved successfully!'
+    File.write(@file, books_json.to_json)
   end
-
 end

@@ -2,12 +2,12 @@ require_relative '../item'
 require 'date'
 
 class Book < Item
-  attr_accessor :title, :publish_date, :publisher, :cover_state, :label
+  attr_reader :title
+  attr_accessor :publisher, :cover_state, :label
 
   def initialize(title, publish_date, publisher, cover_state, label: nil)
-    super(title, publish_date)
-    # @title = title
-    # @publish_date = publish_date
+    super(publish_date, false)
+    @title = title
     @publisher = publisher
     @cover_state = cover_state
     @label = label
@@ -16,10 +16,5 @@ class Book < Item
   def can_be_archived?
     super || @cover_state.downcase == 'bad'
   end
-
-  # def add_label
-  #   @labels << label
-  # end
 end
 
-# Fix Indentation Width

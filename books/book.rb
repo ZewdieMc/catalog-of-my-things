@@ -17,4 +17,3 @@ class Book < Item
     super || @cover_state.downcase == 'bad'
   end
 end
-

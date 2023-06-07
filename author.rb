@@ -1,8 +1,10 @@
+require 'securerandom'
+
 class Author
-  attr_accessor :first_name, :last_name, :items
+  attr_accessor :id, :first_name, :last_name, :items
 
   def initialize(first_name, last_name, items = [])
-    @id = SecureRandom.random(1000)
+    @id = SecureRandom.random_number(1000)
     @first_name = first_name
     @last_name = last_name
     @items = items
@@ -13,3 +15,5 @@ class Author
     item.author = self
   end
 end
+author = Author.new('zewdie','habtie')
+puts author.id

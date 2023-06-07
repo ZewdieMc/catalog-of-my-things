@@ -1,3 +1,5 @@
+require_relative './books/book_ui'
+
 class Choice
   OPTIONS = {
     1 => :list_books,
@@ -12,10 +14,11 @@ class Choice
     10 => :add_music_album,
     11 => :add_movie,
     12 => :add_game,
-    13 => :exit
+    0 => :exit
   }.freeze
 
   def initialize
+    @book_app = BookActions.new
     input = gets.chomp.to_i
     if OPTIONS[input]
       send(OPTIONS[input])
@@ -25,54 +28,58 @@ class Choice
   end
 
   def list_books
-    puts 'List all books'
+    puts 'Listing all books'
+    @book_app.list_books
   end
 
   def list_music_albums
-    puts 'List all music albums'
+    puts 'Listing all music albums'
   end
 
   def list_movies
-    puts 'List all movies'
+    puts 'Listing all movies'
   end
 
   def list_games
-    puts 'List all games'
+    puts 'Listing all games'
   end
 
   def list_genres
-    puts 'List all genres'
+    puts 'Listing all genres'
   end
 
   def list_labels
-    puts 'List all labels'
+    puts 'Listing all labels'
+    @book_app.list_labels
   end
 
   def list_authors
-    puts 'List all authors'
+    puts 'Listing all authors'
   end
 
   def list_sources
-    puts 'List all sources'
+    puts 'Listing all sources'
   end
 
   def add_book
-    puts 'Add a book'
+    puts 'Adding a book'
+    @book_app.add_book
   end
 
   def add_music_album
-    puts 'Add a music album'
+    puts 'Adding a music album'
   end
 
   def add_movie
-    puts 'Add a movie'
+    puts 'Adding a movie'
   end
 
   def add_game
-    puts 'Add a game'
+    puts 'Adding a game'
   end
 
   def exit
+    puts 'Thanks for Using this App'
     Kernel.exit
   end
 end

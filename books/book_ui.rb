@@ -82,12 +82,14 @@ class BookActions
       return [] unless books_data.is_a?(Array)
 
       books_data.map do |book|
+        label_data = book[:label]
+        label = label_data.nil? ? nil : Label.new(1, label_data[:name], label_data[:color])
         Book.new(
           book[:title],
           book[:publish_date],
           book[:publisher],
           book[:cover_state],
-          label: book[:label]
+          label: label
         )
       end
     rescue Errno::ENOENT, JSON::ParserError => e

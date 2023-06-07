@@ -19,10 +19,10 @@ class BookActions
       puts "\n"
       puts '--------------- Book Info ---------------'
       @books.each do |book|
-        puts "Title: #{book.title}"
-        puts "Publisher: #{book.publisher}"
-        puts "Cover State: #{book.cover_state}"
-        puts "Publish Date: #{book.publish_date}"
+        puts "Title:- #{book.title}"
+        puts "Publisher:- #{book.publisher}"
+        puts "Cover State:- #{book.cover_state}"
+        puts "Publish Date:- #{book.publish_date}"
         puts '------------------------------------------'
       end
     end

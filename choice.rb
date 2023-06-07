@@ -14,7 +14,7 @@ class Choice
     10 => :add_music_album,
     11 => :add_movie,
     12 => :add_game,
-    13 => :exit
+    0 => :exit
   }.freeze
 
   def initialize

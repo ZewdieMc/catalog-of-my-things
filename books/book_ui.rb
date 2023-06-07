@@ -82,16 +82,29 @@ class BookActions
     save_books
   end
 
-  def load_books
-    if File.exist?(@file)
-      data = JSON.parse(File.read(@file))
-      data.map do |book|
-        Book.new(book['title'], book['publish_date'], book['publisher'], book['cover_state'], label: book['label'])
-      end
-    else
-      []
-    end
-  end
+   def load_books
+     begin
+       if File.exist?(@file) && !File.zero?(@file)
+         json_data = File.read(@file)
+         books_data = JSON.parse(json_data)
+
+         # Validate the parsed JSON data before proceeding
+         if books_data.is_a?(Array)
+           return books_data.map do |book|
+             # Only symbolize the keys if they aren't already symbols
+             book.transform_keys!(&:to_sym) unless book.all?{|k,v| k.is_a?(Symbol)}
+             Book.new(book[:title], book[:publish_date], book[:publisher], book[:cover_state], label: book[:label])
+           end
+         end
+       end
+     rescue Errno::ENOENT, JSON::ParserError => e
+       puts "An error occurred while trying to load books: #{e.message}"
+     end
+
+     # Return an empty array if any errors occurred or the file is empty
+     []
+   end
+
 
   def save_books
     books_json = @books.map do |book|

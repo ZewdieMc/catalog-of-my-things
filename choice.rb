@@ -79,6 +79,7 @@ class Choice
   end
 
   def exit
+    puts 'Thanks for Using this App'
     Kernel.exit
   end
 end

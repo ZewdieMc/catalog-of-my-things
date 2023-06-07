@@ -20,7 +20,7 @@ RSpec.describe BookActions do
         'red'
       )
       @book_app.add_book
-      # book = @book_app.books.last
+      book = @book_app.books.last
 
       expect(book.title).to eq('Test title')
       expect(book.publisher).to eq('publisher one')

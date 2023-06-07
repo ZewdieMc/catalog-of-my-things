@@ -1,3 +1,5 @@
+require_relative './albumaction/albumact.rb'
+
 class Choice
   OPTIONS = {
     1 => :list_books,
@@ -25,51 +27,54 @@ class Choice
   end
 
   def list_books
-    puts 'List all books'
+    puts '1 - List all books'
   end
 
   def list_music_albums
-    puts 'List all music albums'
+    puts '2 - List all music albums'
+    alb = Albumaction.new
+    alb.get_music_album
+
   end
 
   def list_movies
-    puts 'List all movies'
+    puts '3 - List all movies'
   end
 
   def list_games
-    puts 'List all games'
+    puts '4 - List all games'
   end
 
   def list_genres
-    puts 'List all genres'
+    puts '5 - List all genres'
   end
 
   def list_labels
-    puts 'List all labels'
+    puts '6 - List all labels'
   end
 
   def list_authors
-    puts 'List all authors'
+    puts '7 - List all authors'
   end
 
   def list_sources
-    puts 'List all sources'
+    puts '8 - List all sources'
   end
 
   def add_book
-    puts 'Add a book'
+    puts '9 - Add a book'
   end
 
   def add_music_album
-    puts 'Add a music album'
+    puts '10 - Add a music album'
   end
 
   def add_movie
-    puts 'Add a movie'
+    puts '11 - Add a movie'
   end
 
   def add_game
-    puts 'Add a game'
+    puts '12 - Add a game'
   end
 
   def exit

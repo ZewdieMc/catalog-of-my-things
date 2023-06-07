@@ -4,7 +4,6 @@ require_relative 'choice'
 
 class Main
   def initialize
-    @item = Item.new('12/15/2000', false)
   end
 
   def run

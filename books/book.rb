@@ -2,13 +2,14 @@ require_relative '../item'
 require 'date'
 
 class Book < Item
-  attr_reader :title, :publish_date, :publisher, :cover_state, :label
+  attr_accessor :title, :publisher, :cover_state, :label
 
-  def initialize(title, publish_date, publisher, cover_state, label = [])
+  def initialize(title, publish_date, publisher, cover_state, label: [])
+    super(publish_date)
     @title = title
-    @publish_date = publish_date
     @publisher = publisher
     @cover_state = cover_state
+    @labels = []
     @label = label
   end
 
@@ -16,8 +17,7 @@ class Book < Item
     super || @cover_state.downcase == 'bad'
   end
 
-  def add_label(new_label)
-    @label << new_label
+  def add_label
+    @labels << label
   end
 end
-

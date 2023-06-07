@@ -10,6 +10,9 @@ class Item
     @id = SecureRandom.random_number(1000)
     @publish_date = publish_date
     @archived = archived
+    @label = nil
+    @genre = nil
+    @author = author
   end
 
   def move_to_archive

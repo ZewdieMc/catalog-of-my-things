@@ -47,6 +47,8 @@ class Choice
 
   def list_genres
     puts '5 - List all genres'
+    genre = Albumaction.new
+    genre.get_genre
   end
 
   def list_labels

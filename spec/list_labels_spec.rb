@@ -17,7 +17,7 @@ RSpec.describe BookActions do
         @book1 = Book.new('Test title 1', Date.new(2023, 6, 7), 'publisher one', 'good')
         @book1.label = @label1
         @book2 = Book.new('Test title 2', Date.new(2023, 6, 8), 'publisher two', 'bad')
-        # @book2.label = @label2
+        @book2.label = @label2
         @book_app.books = [@book1, @book2]
       end
 

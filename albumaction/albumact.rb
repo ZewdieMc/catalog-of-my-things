@@ -13,7 +13,7 @@ class Albumaction
                 file_content = File.read(file_path)
                 music_data = JSON.parse(file_content)
                 music_data.each do |album|
-                    puts album
+                    puts "Published date: #{album['publish_date']} ---- archived: #{album['archived']} ----- on spotify : #{album['on_spotify']}"
                   end
             end
         else
@@ -40,8 +40,6 @@ class Albumaction
     end
     def add_music_album
         file_path = './album_data/music.json'
-        puts "Enter the name of the music album"
-        name = gets.chomp
         puts "Enter the publish date of the music album"
         publish_date = gets.chomp
         puts "Is the music album archived? (true/false)"
@@ -67,10 +65,8 @@ class Albumaction
                 file_content = File.read(file_path)
                 music_data_file = JSON.parse(file_content)
                 music_data_file << music_hash
-                # puts music_data_file
                 File.write(file_path, JSON.generate(music_data_file))
                 puts "data added successfully"
-                # puts "hello world -----------------------------------------"
             end
         else
             File.open(file_path, 'w') { |file| file.write(JSON.generate(music_data)) }
@@ -85,41 +81,3 @@ class Albumaction
 end
 
 
-# def add_music_album
-#     file_path = '../album_data/music.json'
-#     music_album = {
-#       name: "good",
-#       date: "12/14/2020"
-#     }
-#     music_data = []
-  
-#     if File.exist?(file_path)
-#       file_content = File.read(file_path)
-#       music_data = JSON.parse(file_content)
-#       music_data << music_album
-#       File.write(file_path, JSON.generate(music_data))
-#       # puts music_data.to_s
-#     else
-#       puts "No file exists"
-#     end
-#   end
-  
-#   def list_music_album
-#     file_path = '../album_data/music.json'
-  
-#     if File.exist?(file_path)
-#       file_content = File.read(file_path)
-#       music_data = JSON.parse(file_content)
-#       return music_data
-#     else
-#       puts "No file exists"
-#     end
-#   end
-  
-#   add_music_album
-#   music_albums = list_music_album
-# #   puts music_albums.class
-#   music_albums.each do |album|
-#     puts album['name']
-#   end
-  

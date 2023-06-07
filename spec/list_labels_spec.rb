@@ -38,3 +38,5 @@ RSpec.describe BookActions do
     end
   end
 end
+
+# Check the test on github workflow file

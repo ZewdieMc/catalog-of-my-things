@@ -1,3 +1,5 @@
+require_relative './books/book_ui'
+
 class Choice
   OPTIONS = {
     1 => :list_books,
@@ -16,6 +18,7 @@ class Choice
   }.freeze
 
   def initialize
+    @book_app = BookActions.new
     input = gets.chomp.to_i
     if OPTIONS[input]
       send(OPTIONS[input])
@@ -25,51 +28,54 @@ class Choice
   end
 
   def list_books
-    puts '1 - List all books'
+    puts 'Listing all books'
+    @book_app.list_books
   end
 
   def list_music_albums
-    puts '2 - List all music albums'
+    puts 'Listing all music albums'
   end
 
   def list_movies
-    puts '3 - List all movies'
+    puts 'Listing all movies'
   end
 
   def list_games
-    puts '4 - List all games'
+    puts 'Listing all games'
   end
 
   def list_genres
-    puts '5 - List all genres'
+    puts 'Listing all genres'
   end
 
   def list_labels
-    puts '6 - List all labels'
+    puts 'Listing all labels'
+    @book_app.list_labels
   end
 
   def list_authors
-    puts '7 - List all authors'
+    puts 'Listing all authors'
   end
 
   def list_sources
-    puts '8 - List all sources'
+    puts 'Listing all sources'
   end
 
   def add_book
-    puts '9 - Add a book'
+    puts 'Adding a book'
+    @book_app.add_book
   end
 
   def add_music_album
-    puts '10 - Add a music album'
+    puts 'Adding a music album'
   end
 
   def add_movie
-    puts '11 - Add a movie'
+    puts 'Adding a movie'
   end
 
   def add_game
-    puts '12 - Add a game'
+    puts 'Adding a game'
   end
 
   def exit

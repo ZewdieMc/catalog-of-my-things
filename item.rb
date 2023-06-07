@@ -1,8 +1,10 @@
+require_relative './books/label'
 require 'securerandom'
 require 'date'
 
 class Item
   attr_accessor :genre, :author, :source, :label, :publish_date
+  attr_reader :id, :archived
 
   def initialize(publish_date, archived)
     @id = SecureRandom.random_number(1000)
@@ -11,11 +13,7 @@ class Item
   end
 
   def move_to_archive
-    if can_be_archived?
-      @archived = true
-    else
-      puts 'Item is already archived'
-    end
+    @archived = true if can_be_archived?
   end
 
   private

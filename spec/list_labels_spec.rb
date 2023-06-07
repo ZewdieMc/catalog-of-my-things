@@ -9,7 +9,7 @@ RSpec.describe BookActions do
     @book_app = BookActions.new(file: './json_data/books.json')
   end
 
- describe '#list_labels' do
+  describe '#list_labels' do
     context 'when there are labels in the list' do
       before do
         @label1 = Label.new(1, 'gift', 'red')

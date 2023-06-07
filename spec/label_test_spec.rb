@@ -25,6 +25,7 @@ RSpec.describe Label do
 
     it 'sets the label of the item to itself' do
       label.add_item(book2)
+      expect(book2.label).to eq(label)
     end
   end
 

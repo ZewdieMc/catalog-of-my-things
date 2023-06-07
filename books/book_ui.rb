@@ -86,17 +86,22 @@ class BookActions
   end
 
   def load_books
-    return [] unless File.exist?(@file) && !File.zero?(@file)
-
-    json_data = File.read(@file) # read JSON data from file
-    begin
-      books_data = JSON.parse(json_data) # parse JSON into array of objects
-      books_data.map do |book|
-        # Convert all keys in the hash to symbols
-        book = Hash[book.map { |k, v| [k.to_sym, v] }]
-        Book.new(book[:title], book[:publish_date], book[:publisher], book[:cover_state], label: book[:label])
+    if File.exist?(@file)
+      data = JSON.parse(File.read(@file))
+      data.map do |book|
+        label_data = case book['label']
+        when Label
+          book['label']
+        when Array
+          Label.new(book['id'], book['label'][0]['name'], book['label'][0]['color'])
+        when String
+          Label.new(book['id'], book['label'], nil)
+        else
+          nil
+        end
+        Book.new(book['title'], book['publish_date'], book['publisher'], book['cover_state'], label: label_data)
       end
-    rescue JSON::ParserError
+    else
       []
     end
   end
@@ -120,4 +125,9 @@ class BookActions
 
     File.write(@file, books_json.to_json) # generate JSON string and write to file
   end
+
+  private
+
+
+
 end

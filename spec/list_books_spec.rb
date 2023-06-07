@@ -6,7 +6,7 @@ require 'json'
 
 RSpec.describe BookActions do
   before do
-    @book_app = BookActions.new(file: './json_data/books.json')
+    @book_app = BookActions.new(file: "#{__dir__}/../json_data/books.json")
   end
 
   describe '#list_books' do

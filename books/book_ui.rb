@@ -35,8 +35,8 @@ class BookActions
       puts 'No labels found!'
     else
       labels.each do |label|
-        name = label[:name] || label.name
-        color = label[:color] || label.color
+        name = label.name
+        color = label.color
         puts "Color: #{color} - Name: #{name}"
         puts '------------------------------------------'
       end

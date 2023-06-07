@@ -7,8 +7,8 @@ class BookActions
 
   attr_accessor :books
 
-  def initialize(file: FILE_PATH)
-    @file = file
+  def initialize(file_path: FILE_PATH)
+    @file_path = file_path
     @books = load_books || []
   end
 
@@ -16,8 +16,7 @@ class BookActions
     if @books.empty?
       puts 'No books found!'
     else
-      puts "\n"
-      puts '________________ Book Info _________________'
+      puts "\n________________ Book Info ________________\n"
       @books.each do |book|
         puts "Title: #{book.title}"
         puts "Publisher: #{book.publisher}"
@@ -36,7 +35,7 @@ class BookActions
       puts "No labels found!\n"
     else
       puts '--------------- Label Info ---------------'
-      labels.each_with_index do |label, index|
+      labels.each do |label|
         name = label.respond_to?(:name) ? label.name : label['name']
         color = label.respond_to?(:color) ? label.color : label['color']
 
@@ -47,7 +46,6 @@ class BookActions
   end
 
   def add_book(title:, publish_date:, publisher:, cover_state:, label: [])
-    @books ||= [] # initialize @books to an empty array if it is nil
     book = Book.new(title, publish_date, publisher, cover_state, label)
     @books << book # add new book to array
     save_books # save updated array to file
@@ -62,12 +60,14 @@ class BookActions
 
     print 'Enter the cover state of the book: (G)ood or (B)ad? '
     cover_state = gets.chomp.upcase
-    case cover_state
-    when 'B'
-      cover_state = 'bad'
-    when 'G'
-      cover_state = 'good'
-    end
+    cover_state = case cover_state
+                  when 'B'
+                    'bad'
+                  when 'G'
+                    'good'
+                  else
+                    'unknown'
+                  end
 
     print 'Enter the publish date of the book (YYYY-MM-DD): '
     publish_date = Date.parse(gets.chomp)
@@ -86,20 +86,20 @@ class BookActions
   end
 
   def load_books
-    if File.exist?(@file)
-      data = JSON.parse(File.read(@file))
-      data.map do |book|
-        label_data = case book['label']
-        when Label
-          book['label']
-        when Array
-          Label.new(book['id'], book['label'][0]['name'], book['label'][0]['color'])
-        when String
-          Label.new(book['id'], book['label'], nil)
-        else
-          nil
-        end
-        Book.new(book['title'], book['publish_date'], book['publisher'], book['cover_state'], label: label_data)
+    if File.exist?(@file_path)
+      data = JSON.parse(File.read(@file_path))
+      data.map do |book_data|
+        label_data = case book_data['label']
+                     when Label
+                       book_data['label']
+                     when Array
+                       Label.new(book_data['id'], book_data['label'][0]['name'], book_data['label'][0]['color'])
+                     when String
+                       Label.new(book_data['id'], book_data['label'], nil)
+                     else
+                       nil
+                     end
+        Book.new(book_data['title'], book_data['publish_date'], book_data['publisher'], book_data['cover_state'], label: label_data)
       end
     else
       []
@@ -109,11 +109,11 @@ class BookActions
   def save_books
     books_json = { books: @books.map do |book|
       label_data = case book.label
-      when Label
-        { name: book.label.name, color: book.label.color }
-      else
-        book.label
-      end
+                   when Label
+                     { name: book.label.name, color: book.label.color }
+                   else
+                     book.label
+                   end
       {
         title: book.title,
         publish_date: book.publish_date,
@@ -123,11 +123,14 @@ class BookActions
       }
     end }
 
-    File.write(@file, books_json.to_json) # generate JSON string and write to file
+    File.write(@file_path, books_json.to_json) # generate JSON string and write to file
   end
-
-  private
-
-
-
 end
+
+  # def add_book(title:, publish_date:, publisher:, cover_state:, label: [])
+  #   @books ||= [] # initialize @books to an empty array if it is nil
+  #   book = Book.new(title, publish_date, publisher, cover_state, label)
+  #   @books << book # add new book to array
+  #   save_books # save updated array to file
+  # end
+

@@ -6,8 +6,8 @@ class Book < Item
 
   def initialize(title, publish_date, publisher, cover_state, label: nil)
     super(title, publish_date)
-    @title = title
-    @publish_date = publish_date
+    # @title = title
+    # @publish_date = publish_date
     @publisher = publisher
     @cover_state = cover_state
     @label = label
@@ -17,9 +17,9 @@ class Book < Item
     super || @cover_state.downcase == 'bad'
   end
 
-  def add_label
-    @labels << label
-  end
+  # def add_label
+  #   @labels << label
+  # end
 end
 
 # Fix Indentation Width

@@ -18,7 +18,7 @@ RSpec.describe BookActions do
       end
 
       it 'prints the book information' do
-        expect { @book_app.list_books }.to output(/author: Test author 1/).to_stdout
+        expect { @book_app.list_books }.to output(/Author: Test author 1/).to_stdout
         expect { @book_app.list_books }.to output(/Publisher: publisher two/).to_stdout
       end
     end

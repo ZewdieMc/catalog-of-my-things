@@ -1,12 +1,15 @@
+#!/usr/bin/env ruby
+
 require_relative 'item'
 require_relative 'options'
 require_relative 'choice'
 require_relative './books/book_ui'
 
 class Main
-  def initialize
-    @item = Item.new('12/15/2000', false)
-    @book_app = BookActions.new
+  def initialize(book_app = BookActions.new, game = GameOptions.new)
+    @book_app = book_app
+    @game = game
+    @choice = Choice.new(@book_app, @game)
   end
 
   def run
@@ -14,7 +17,7 @@ class Main
     puts "Please choose an option by entering a number!\n"
     loop do
       Options.new
-      Choice.new
+      @choice.run
     end
   end
 end

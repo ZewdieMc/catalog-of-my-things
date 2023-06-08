@@ -11,6 +11,7 @@ class Main
     @game = game
     @choice = Choice.new(@book_app, @game)
   end
+
   def run
     puts "Welcome to our Catalog of things \n"
     puts "Please choose an option by entering a number!\n"

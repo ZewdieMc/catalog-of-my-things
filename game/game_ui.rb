@@ -8,7 +8,7 @@ class GameOptions
     @games = []
     @authors = []
   end
-    
+
   def add_game
     print 'Enter the publish date of the game (YYYY-MM-DD): '
     publish_date = Date.parse(gets.chomp)

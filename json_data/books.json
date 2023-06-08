@@ -1,1 +1,44 @@
-[{"title":"Python","publish_date":"Python","publisher":"Amazon","cover_state":"good","label":{"name":"buy","color":"red"}},{"title":"Ruby","publish_date":"Ruby","publisher":"Oscar","cover_state":"good","label":{"name":"buy","color":"blue"}},{"title":"Labels","publish_date":"Labels","publisher":"Kindle","cover_state":"bad","label":{"name":"found","color":"black"}},{"title":"New Book","publish_date":"New Book","publisher":"Gabisa","cover_state":"bad","label":{"name":"gift","color":"cyan"}},{"title":"ANODA","publish_date":"ANODA","publisher":"OLDA","cover_state":"good","label":{"name":"gift","color":"magenta"}},{"title":"Check book","publish_date":"2021-01-02","publisher":"beses","cover_state":"good","label":{"name":"gift","color":"green"}},{"title":"Javascript","publish_date":"2023-12-12","publisher":"Jedit","cover_state":"bad","label":{"name":"found","color":"red"}},{"title":"PYthon","publish_date":"2020-04-03","publisher":"Zewdie","cover_state":"good","label":{"name":"found","color":"blue"}},{"title":"something","publish_date":"2000-12-20","publisher":"zed","cover_state":"good","label":{"name":"buy","color":"green"}}]
+[
+  {
+    "title": "Python",
+    "publish_date": "Python",
+    "publisher": "Amazon",
+    "cover_state": "good",
+    "label": { "name": "buy", "color": "red" }
+  },
+  {
+    "title": "Ruby",
+    "publish_date": "Ruby",
+    "publisher": "Oscar",
+    "cover_state": "good",
+    "label": { "name": "buy", "color": "blue" }
+  },
+  {
+    "title": "Labels",
+    "publish_date": "Labels",
+    "publisher": "Kindle",
+    "cover_state": "bad",
+    "label": { "name": "found", "color": "black" }
+  },
+  {
+    "title": "New Book",
+    "publish_date": "New Book",
+    "publisher": "Gabisa",
+    "cover_state": "bad",
+    "label": { "name": "gift", "color": "cyan" }
+  },
+  {
+    "title": "ANODA",
+    "publish_date": "ANODA",
+    "publisher": "OLDA",
+    "cover_state": "good",
+    "label": { "name": "gift", "color": "magenta" }
+  },
+  {
+    "title": "Check book",
+    "publish_date": "2021-01-02",
+    "publisher": "beses",
+    "cover_state": "good",
+    "label": { "name": "gift", "color": "green" }
+  }
+]

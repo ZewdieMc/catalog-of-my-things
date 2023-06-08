@@ -14,4 +14,9 @@ class Label
     @items << item
     item.label = self
   end
+
+  def remove_item(item)
+    @items.delete(item)
+    item.label = nil
+  end
 end

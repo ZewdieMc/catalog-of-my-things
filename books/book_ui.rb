@@ -18,7 +18,7 @@ class BookActions
     else
       puts "\n--------------- Book Info ---------------"
       @books.each do |book|
-        puts "Title: #{book.title}"
+        puts "Author: #{book.author}"
         puts "Publisher: #{book.publisher}"
         puts "Cover State: #{book.cover_state}"
         puts "Publish Date: #{book.publish_date}"
@@ -35,8 +35,8 @@ class BookActions
       puts 'No labels found!'
     else
       labels.each do |label|
-        name = label[:name] || label.name
-        color = label[:color] || label.color
+        name = label.name
+        color = label.color
         puts "Color: #{color} - Name: #{name}"
         puts '------------------------------------------'
       end
@@ -44,8 +44,8 @@ class BookActions
   end
 
   def add_book
-    print 'Enter the book title: '
-    title = gets.chomp
+    print 'Enter the book author: '
+    author = gets.chomp
 
     print 'Enter the book publisher: '
     publisher = gets.chomp
@@ -65,7 +65,7 @@ class BookActions
     print 'Enter the book label color: '
     color = gets.chomp.downcase
 
-    book = Book.new(title, publish_date, publisher, cover_state == 'g' ? 'good' : 'bad')
+    book = Book.new(author, publish_date, publisher, cover_state == 'g' ? 'good' : 'bad')
     book.label = Label.new(1, name, color)
     @books << book
 
@@ -82,12 +82,14 @@ class BookActions
       return [] unless books_data.is_a?(Array)
 
       books_data.map do |book|
+        label_data = book[:label]
+        label = label_data.nil? ? nil : Label.new(1, label_data[:name], label_data[:color])
         Book.new(
-          book[:title],
+          book[:author],
           book[:publish_date],
           book[:publisher],
           book[:cover_state],
-          label: book[:label]
+          label: label
         )
       end
     rescue Errno::ENOENT, JSON::ParserError => e
@@ -100,7 +102,7 @@ class BookActions
     books_json = @books.map do |book|
       label_data = book.label.is_a?(Label) ? { name: book.label.name, color: book.label.color } : book.label
       {
-        title: book.title,
+        author: book.author,
         publish_date: book.publish_date,
         publisher: book.publisher,
         cover_state: book.cover_state,

@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require_relative 'item'
 require_relative 'options'
 require_relative 'choice'
@@ -9,7 +11,7 @@ class Main
     puts "Please choose an option by entering a number!\n"
     loop do
       Options.new
-      Choice.new
+      @choice.run
     end
   end
 end

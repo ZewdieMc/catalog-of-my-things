@@ -1,7 +1,7 @@
 require './game'
 
 describe Game do
-  subject { described_class.new(Date.new(2000, 1, 1), false, true, Date.new(2018, 1, 1)) }
+  subject { described_class.new(Date.new(2000, 1, 1), false, Date.new(2018, 1, 1)) }
   describe '#move_to_archive' do
     it 'should archive the game' do
       subject.move_to_archive

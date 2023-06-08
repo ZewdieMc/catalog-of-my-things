@@ -2,12 +2,12 @@ require_relative '../item'
 require 'date'
 
 class Book < Item
-  attr_reader :title
+  attr_reader :author
   attr_accessor :publisher, :cover_state, :label
 
-  def initialize(title, publish_date, publisher, cover_state, label: nil)
+  def initialize(author, publish_date, publisher, cover_state, label: nil)
     super(publish_date, false)
-    @title = title
+    @author = author
     @publisher = publisher
     @cover_state = cover_state
     @label = label

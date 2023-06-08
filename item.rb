@@ -3,7 +3,7 @@ require 'securerandom'
 require 'date'
 
 class Item
-  attr_accessor :genre, :author, :source, :label, :publish_date
+  attr_accessor :genre, :author, :label, :publish_date
   attr_reader :id, :archived
 
   def initialize(publish_date, archived)
@@ -12,7 +12,7 @@ class Item
     @archived = archived
     @label = nil
     @genre = nil
-    @author = author
+    @author = nil
   end
 
   def move_to_archive

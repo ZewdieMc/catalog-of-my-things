@@ -6,7 +6,8 @@ require 'json'
 
 RSpec.describe BookActions do
   before do
-    @book_app = BookActions.new(file: './json_data/books.json')
+    @mock_file = './mock_books.json'
+    @book_app = BookActions.new(file: @mock_file)
   end
 
   describe '#add_book' do
@@ -19,6 +20,10 @@ RSpec.describe BookActions do
         'gift',
         'red'
       )
+
+      # Mock the File.write method to store book data in the mock file
+      expect(File).to receive(:write).with(@mock_file, /Test author/).and_return(nil)
+
       @book_app.add_book
       book = @book_app.books.last
 

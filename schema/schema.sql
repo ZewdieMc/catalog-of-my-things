@@ -61,3 +61,5 @@ CREATE TABLE game (
   PRIMARY KEY (id),
   FOREIGN KEY (id) REFERENCES item (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+--Checked UML class diagram and database and table based on UML class diagram

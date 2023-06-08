@@ -36,3 +36,28 @@ CREATE TABLE item (
 );
 
 -- Create book table (specialized form of item)
+CREATE TABLE book (
+  item_id INT PRIMARY KEY,
+  publisher VARCHAR(100) NOT NULL,
+  book_cover VARCHAR(100) NOT NULL,
+  FOREIGN KEY (item_id) REFERENCES item (id)
+);
+
+-- Create music albums table
+CREATE TABLE music_album (
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  publish_date DATE NOT NULL DEFAULT CURRENT_DATE,
+  on_spotify BOOLEAN NOT NULL,
+  is_archived BOOLEAN NOT NULL,
+  genre_id INT NOT NULL,
+  FOREIGN KEY (genre_id) REFERENCES genre (id)
+);
+
+-- Create game table
+CREATE TABLE game (
+  id INT NOT NULL,
+  multiplayer BOOLEAN NOT NULL,
+  last_played_at DATE NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (id) REFERENCES item (id) ON DELETE CASCADE ON UPDATE CASCADE
+);

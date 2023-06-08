@@ -92,8 +92,6 @@ class BookActions
           label: label
         )
       end
-
-      
     rescue Errno::ENOENT, JSON::ParserError => e
       puts "An error occurred while trying to load books: #{e.message}"
       []

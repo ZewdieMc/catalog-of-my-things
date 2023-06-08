@@ -15,9 +15,12 @@ class Choice
     0 => :exit
   }.freeze
 
-  def initialize
-    @book_app = BookActions.new
-    @game = GameOptions.new
+  def initialize(book_app, game)
+    @book_app = book_app
+    @game = game
+  end
+
+  def run
     input = gets.chomp.to_i
     if OPTIONS[input]
       send(OPTIONS[input])

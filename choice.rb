@@ -68,10 +68,10 @@ class Choice
     puts '9 - Add a book'
   end
 
-  def addmusicalbum
+  def add_music_album
     puts '10 - Add a music album'
     add_album = Albumaction.new
-    add_album.add_music_album
+    add_album.addmusicalbum
   end
 
   def add_movie

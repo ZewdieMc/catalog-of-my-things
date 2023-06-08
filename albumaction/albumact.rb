@@ -41,9 +41,31 @@ class Albumaction
     end
   end
 
-  # rubocop:disable Metrics/MethodLength
-  def addmusicalbum
-    file_path = './album_data/music.json'
+  def filexists(music_data, file_path, music_hash)
+    if File.empty?(file_path)
+      File.write(file_path, JSON.generate(music_data))
+      file_content = File.read(file_path)
+      music_data_file = JSON.parse(file_content)
+      music_data_file << music_hash
+      File.write(file_path, JSON.generate(music_data))
+    else
+      file_content = File.read(file_path)
+      music_data_file = JSON.parse(file_content)
+      music_data_file << music_hash
+      File.write(file_path, JSON.generate(music_data_file))
+    end
+  end
+
+  def filenotexists(music_data, file_path, music_hash)
+    File.write(file_path, JSON.generate(music_data))
+    file_content = File.read(file_path)
+    music_data = JSON.parse(file_content)
+    music_data << music_hash
+    puts music_data
+    File.write(file_path, JSON.generate(music_data))
+  end
+
+  def inputmusic
     puts 'Enter Genre name'
     genre = gets.chomp
     puts 'Enter the publish date of the music album'
@@ -52,6 +74,12 @@ class Albumaction
     archived = gets.chomp
     puts 'Is the music album on spotify? (true/false)'
     on_spotify = gets.chomp
+    [genre, publish_date, archived, on_spotify]
+  end
+
+  def addmusicalbum
+    file_path = './album_data/music.json'
+    genre, publish_date, archived, on_spotify = inputmusic
     music_hash = {
       genre: genre,
       publish_date: publish_date,
@@ -60,27 +88,9 @@ class Albumaction
     }
     music_data = []
     if File.exist?(file_path)
-      if File.empty?(file_path)
-        File.write(file_path, JSON.generate(music_data))
-        file_content = File.read(file_path)
-        music_data_file = JSON.parse(file_content)
-        music_data_file << music_hash
-        File.write(file_path, JSON.generate(music_data))
-      else
-        file_content = File.read(file_path)
-        music_data_file = JSON.parse(file_content)
-        music_data_file << music_hash
-        File.write(file_path, JSON.generate(music_data_file))
-      end
+      filexists(music_data, file_path, music_hash)
     else
-      File.write(file_path, JSON.generate(music_data))
-      file_content = File.read(file_path)
-      music_data = JSON.parse(file_content)
-      music_data << music_hash
-      puts music_data
-      File.write(file_path, JSON.generate(music_data))
+      filenotexists(music_data, file_path, music_hash)
     end
-    puts 'data added successfully'
   end
-  # rubocop:enable Metrics/MethodLength
 end

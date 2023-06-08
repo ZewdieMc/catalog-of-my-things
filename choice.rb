@@ -1,4 +1,5 @@
 require_relative './albumaction/albumact.rb'
+require_relative './books/book_ui'
 
 class Choice
   OPTIONS = {
@@ -14,10 +15,11 @@ class Choice
     10 => :add_music_album,
     11 => :add_movie,
     12 => :add_game,
-    13 => :exit
+    0 => :exit
   }.freeze
 
   def initialize
+    @book_app = BookActions.new
     input = gets.chomp.to_i
     if OPTIONS[input]
       send(OPTIONS[input])
@@ -82,6 +84,7 @@ class Choice
   end
 
   def exit
+    puts 'Thanks for Using this App'
     Kernel.exit
   end
 end

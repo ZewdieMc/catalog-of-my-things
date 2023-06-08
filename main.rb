@@ -1,9 +1,12 @@
 require_relative 'item'
 require_relative 'options'
 require_relative 'choice'
+require_relative './books/book_ui'
 
 class Main
   def initialize
+#     @item = Item.new('12/15/2000', false)
+#     @book_app = BookActions.new
   end
 
   def run

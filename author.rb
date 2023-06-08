@@ -1,4 +1,5 @@
 require 'securerandom'
+require_relative 'item'
 
 class Author
   attr_accessor :first_name, :last_name
@@ -12,7 +13,7 @@ class Author
   end
 
   def add_item(item)
-    items << item
+    items << item if item.is_a?(Item)
     item.author = self
   end
 end

@@ -1,10 +1,11 @@
 require_relative './books/book_ui'
+require_relative './game/game_ui'
 
 class Choice
   OPTIONS = {
     1 => :list_books,
     2 => :list_music_albums,
-    3 => :list_movies,
+    3 => :create_author,
     4 => :list_games,
     5 => :list_genres,
     6 => :list_labels,
@@ -19,6 +20,7 @@ class Choice
 
   def initialize
     @book_app = BookActions.new
+    @game = GameOptions.new
     input = gets.chomp.to_i
     if OPTIONS[input]
       send(OPTIONS[input])
@@ -36,12 +38,13 @@ class Choice
     puts 'Listing all music albums'
   end
 
-  def list_movies
-    puts 'Listing all movies'
+  def create_author
+    @game.create_author
   end
 
   def list_games
-    puts 'Listing all games'
+    puts '=======Game List======='
+    @game.list_games
   end
 
   def list_genres
@@ -54,7 +57,7 @@ class Choice
   end
 
   def list_authors
-    puts 'Listing all authors'
+    @game.list_authors
   end
 
   def list_sources
@@ -75,7 +78,7 @@ class Choice
   end
 
   def add_game
-    puts 'Adding a game'
+    @game.add_game
   end
 
   def exit

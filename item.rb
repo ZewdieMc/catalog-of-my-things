@@ -8,7 +8,7 @@ class Item
 
   def initialize(publish_date, archived)
     @id = SecureRandom.random_number(1000)
-    @publish_date = Date.parse(publish_date)
+    @publish_date = publish_date
     @archived = archived
     @label = nil
     @genre = nil

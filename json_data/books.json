@@ -21,10 +21,10 @@
     "label": { "name": "gift", "color": "green" }
   },
   {
-    "author": "Fix",
-    "publish_date": "1998-02-12",
-    "publisher": "JSON",
-    "cover_state": "good",
-    "label": { "name": "found", "color": "blue" }
+    "author": "Last try",
+    "publish_date": "2022-02-09",
+    "publisher": "Pacific",
+    "cover_state": "bad",
+    "label": { "name": "gift", "color": "brown" }
   }
 ]

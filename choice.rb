@@ -1,4 +1,4 @@
-require_relative './albumaction/albumact.rb'
+require_relative './albumaction/albumact'
 require_relative './books/book_ui'
 
 class Choice
@@ -35,8 +35,7 @@ class Choice
   def list_music_albums
     puts '2 - List all music albums'
     alb = Albumaction.new
-    alb.get_music_album
-
+    alb.getmusicalbum
   end
 
   def list_movies
@@ -50,7 +49,7 @@ class Choice
   def list_genres
     puts '5 - List all genres'
     genre = Albumaction.new
-    genre.get_genre
+    genre.getgenre
   end
 
   def list_labels
@@ -69,7 +68,7 @@ class Choice
     puts '9 - Add a book'
   end
 
-  def add_music_album
+  def addmusicalbum
     puts '10 - Add a music album'
     add_album = Albumaction.new
     add_album.add_music_album

@@ -1,7 +1,10 @@
 require_relative '../game'
 require_relative '../author'
+require 'fileutils'
 
 class GameOptions
+  FILE_PATH = "#{__dir__}/../json_data/games.json".freeze
+
   attr_accessor :games, :authors
 
   def initialize
@@ -48,5 +51,13 @@ class GameOptions
       puts "Author #{index + 1}: #{author.first_name} #{author.last_name}"
       puts '============================'
     end
+  end
+
+  def load_games
+    return [] if !File.exist?(FILE_PATH) || File.empty(FILE_PATH)
+    json_data = File.read(FILE_PATH)
+    games_data = JSON.parse(json_data, symbolize_names: true)
+    return [] unless games_data.is_a?(Array)
+    
   end
 end

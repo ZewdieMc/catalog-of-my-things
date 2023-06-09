@@ -1,0 +1,40 @@
+[
+  {
+    "first_name": "Zewdie",
+    "last_name": "Habtie",
+    "items": [
+      {
+        "id": 373,
+        "publish_date": "2000-05-08",
+        "archived": false
+      }
+    ]
+  },
+  {
+    "first_name": "Genet",
+    "last_name": "worku",
+    "items": [
+      {
+        "id": 169,
+        "publish_date": "2020-09-25",
+        "archived": false
+      }
+    ]
+  },
+  {
+    "first_name": "Jejaw",
+    "last_name": "Habtie",
+    "items": [
+      {
+        "id": 289,
+        "publish_date": "1999-05-28",
+        "archived": false
+      },
+      {
+        "id": 756,
+        "publish_date": "2023-05-05",
+        "archived": false
+      }
+    ]
+  }
+]

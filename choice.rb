@@ -40,7 +40,6 @@ class Choice
     alb.getmusicalbum
   end
 
-
   def create_author
     @game.create_author
   end

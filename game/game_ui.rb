@@ -77,7 +77,6 @@ class GameOptions
   def store_games
     games_arr = []
     @games.each do |game|
-      puts game.author
       games_arr.push({
                        id: game.id,
                        publish_date: game.publish_date,

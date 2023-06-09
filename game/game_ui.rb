@@ -23,7 +23,7 @@ class GameOptions
     author = choose_author
     author.add_item(game)
     store_authors
-    @games<<game
+    @games << game
     puts 'Game created successfully.'
     store_games
   end

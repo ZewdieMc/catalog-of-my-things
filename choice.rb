@@ -1,3 +1,4 @@
+require_relative './albumaction/albumact'
 require_relative './books/book_ui'
 require_relative './game/game_ui'
 
@@ -30,12 +31,13 @@ class Choice
   end
 
   def list_books
-    puts 'Listing all books'
-    @book_app.list_books
+    puts '1 - List all books'
   end
 
   def list_music_albums
-    puts 'Listing all music albums'
+    puts '2 - List all music albums'
+    alb = Albumaction.new
+    alb.getmusicalbum
   end
 
   def create_author
@@ -48,12 +50,13 @@ class Choice
   end
 
   def list_genres
-    puts 'Listing all genres'
+    puts '5 - List all genres'
+    genre = Albumaction.new
+    genre.getgenre
   end
 
   def list_labels
-    puts 'Listing all labels'
-    @book_app.list_labels
+    puts '6 - List all labels'
   end
 
   def list_authors
@@ -61,12 +64,13 @@ class Choice
   end
 
   def add_book
-    puts 'Adding a book'
-    @book_app.add_book
+    puts '9 - Add a book'
   end
 
   def add_music_album
-    puts 'Adding a music album'
+    puts '10 - Add a music album'
+    add_album = Albumaction.new
+    add_album.addmusicalbum
   end
 
   def add_game

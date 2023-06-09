@@ -121,7 +121,7 @@ class GameOptions
       last_played_at = game_data[:last_played_at]
       game = Game.new(publish_date, multiplayer, last_played_at)
       game.label = game_data[:label]
-      author = Author.new(game_data[:author].split(' ')[0], game_data[:author].split(' ')[1])
+      author = Author.new(game_data[:author].split[0], game_data[:author].split[1])
       game.author = author
       game.genre = game_data[:genre]
       @games.push(game)

@@ -64,7 +64,7 @@
 ## Key Features <a name="key-features"></a>
 
 - Manage collections: Users can track their personal collections of books, music albums, movies, and games using the application.
-- Search functionality: The program allows users to search for specific items based on title, artist, or genre.
+- Search functionality: The program allows users to search for specific items based on author, artist, or genre.
 - Data storage: All data is stored in JSON files, making it easy to import and export collections between devices.
 - Database integration: The application includes a database with tables that reflect the class structure of the program, enabling efficient storage and retrieval of data.
 - User-friendly interface: The console app provides an intuitive and convenient way for users to manage their collections and keep track of the items they own.

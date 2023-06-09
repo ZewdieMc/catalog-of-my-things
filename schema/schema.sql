@@ -21,7 +21,7 @@ CREATE TABLE author (
 -- Create label table
 CREATE TABLE label (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  title VARCHAR(100) NOT NULL,
+  author VARCHAR(100) NOT NULL,
   color VARCHAR(100) NOT NULL,
   item_id INT NOT NULL,
   FOREIGN KEY(item_id) REFERENCES item(id)

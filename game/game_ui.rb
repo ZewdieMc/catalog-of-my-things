@@ -54,7 +54,7 @@ class GameOptions
     puts 'There are no games in the library' if @games.empty?
     load_games
     @games.each do |game|
-      puts game.label.nil? ? 'Label: No label' : "Label: #{game.label.title}"
+      puts game.label.nil? ? 'Label: No label' : "Label: #{game.label.author}"
       puts "Publish date: #{game.publish_date}"
       puts game.multiplayer == true ? 'Player: multiplayer' : 'Player: singleplayer'
       puts "Last played at: #{game.last_played_at}"

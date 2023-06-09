@@ -31,7 +31,8 @@ class Choice
   end
 
   def list_books
-    puts '1 - List all books'
+    puts 'Listing all books'
+    @book_app.list_books
   end
 
   def list_music_albums
@@ -52,7 +53,8 @@ class Choice
   end
 
   def list_labels
-    puts '6 - List all labels'
+    puts 'Listing all labels'
+    @book_app.list_labels
   end
 
   def list_authors
@@ -62,7 +64,8 @@ class Choice
   end
 
   def add_book
-    puts '9 - Add a book'
+    puts 'Adding a book'
+    @book_app.add_book
   end
 
   def add_music_album

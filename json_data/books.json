@@ -1,44 +1,58 @@
 [
   {
-    "title": "Python",
+    "author": "Python",
     "publish_date": "Python",
     "publisher": "Amazon",
     "cover_state": "good",
     "label": { "name": "buy", "color": "red" }
   },
   {
-    "title": "Ruby",
+    "author": "Ruby",
     "publish_date": "Ruby",
     "publisher": "Oscar",
     "cover_state": "good",
     "label": { "name": "buy", "color": "blue" }
   },
   {
-    "title": "Labels",
+    "author": "Labels",
     "publish_date": "Labels",
     "publisher": "Kindle",
     "cover_state": "bad",
     "label": { "name": "found", "color": "black" }
   },
   {
-    "title": "New Book",
+    "author": "New Book",
     "publish_date": "New Book",
     "publisher": "Gabisa",
     "cover_state": "bad",
     "label": { "name": "gift", "color": "cyan" }
   },
   {
-    "title": "ANODA",
+    "author": "ANODA",
     "publish_date": "ANODA",
     "publisher": "OLDA",
     "cover_state": "good",
     "label": { "name": "gift", "color": "magenta" }
   },
   {
-    "title": "Check book",
+    "author": "Check book",
     "publish_date": "2021-01-02",
     "publisher": "beses",
     "cover_state": "good",
     "label": { "name": "gift", "color": "green" }
+  },
+  {
+    "author": "Ruby",
+    "publish_date": "2020-11-02",
+    "publisher": "Rails",
+    "cover_state": "good",
+    "label": { "name": "buy", "color": "red" }
+  },
+  {
+    "author": "Oscar",
+    "publish_date": "2020-02-02",
+    "publisher": "EAT",
+    "cover_state": "good",
+    "label": { "name": "buy", "color": "red" }
   }
 ]

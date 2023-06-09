@@ -9,7 +9,7 @@ RSpec.describe BookActions do
     @mock_json_data = <<~JSON
       [
         {
-          "title": "Test Book 1",
+          "author": "Test Book 1",
           "author": "Test author 1",
           "publish_date": "2023-06-07",
           "publisher": "publisher one",
@@ -17,7 +17,7 @@ RSpec.describe BookActions do
           "labels": []
         },
         {
-          "title": "Test Book 2",
+          "author": "Test Book 2",
           "author": "Test author 2",
           "publish_date": "2023-06-08",
           "publisher": "publisher two",

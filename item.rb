@@ -6,8 +6,8 @@ class Item
   attr_accessor :genre, :author, :label, :publish_date
   attr_reader :id, :archived
 
-  def initialize(publish_date, archived)
-    @id = SecureRandom.random_number(1000)
+  def initialize(publish_date, archived, id = SecureRandom.random_number(1000))
+    @id = id
     @publish_date = publish_date
     @archived = archived
     @label = nil

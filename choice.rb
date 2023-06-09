@@ -38,12 +38,8 @@ class Choice
     puts 'Listing all music albums'
   end
 
-  def create_author
-    @game.create_author
-  end
-
   def list_games
-    puts '=======Game List======='
+    puts '=======Games List======='
     @game.list_games
   end
 
@@ -57,6 +53,8 @@ class Choice
   end
 
   def list_authors
+    puts '=======Authors List======='
+
     @game.list_authors
   end
 

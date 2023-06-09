@@ -66,7 +66,7 @@ class GameOptions
   end
 
   def list_authors
-    @authors = @games.map(&:author).uniq
+    load_authors
     puts 'There are no authors in the library' if @authors.empty?
     @authors.each.with_index do |author, index|
       puts "Author #{index + 1}: #{author.first_name} #{author.last_name}"

@@ -53,7 +53,7 @@ class Choice
   end
 
   def list_labels
-    puts "Listing all labels"
+    puts 'Listing all labels'
     @book_app.list_labels
   end
 

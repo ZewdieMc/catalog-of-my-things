@@ -30,9 +30,8 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Catalog_of_my_things] <a name="about-project"></a>
-
-> ## **[Catalog_of_my_things]** :- The "Catalog_of_my_things" is a console app that helps users manage their collections of books, music albums, movies, and games. Data is stored in JSON files and a corresponding database. Users can add, view, and remove items, as well as search for specific items.
+# 📖 Catalog_of_my_things <a name="about-project"></a>
+ ## **[Catalog_of_my_things]** :- The "Catalog_of_my_things" is a console app that helps users manage their collections of books, music albums, movies, and games. Data is stored in JSON files and a corresponding database. Users can add, view, and remove items, as well as search for specific items. Have a look at our **[video presentation](https://drive.google.com/file/d/1NFQ_JmTiCCSLpqZ6EZKZMCjLVDpkTFC2/view)** of the console app.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -115,7 +114,7 @@ Navigate to the directory where the Ruby file is stored using the cd command.
 Type the following command to run the Ruby file:
 
 ```sh
-ruby filename.rb
+ruby main.rb
 ```
 
 ### - where filename.rb is the name of the Ruby file you want to run.

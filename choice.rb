@@ -31,11 +31,12 @@ class Choice
   end
 
   def list_books
-    puts '1 - List all books'
+    puts 'All books'
+    @book_app.list_books
   end
 
   def list_music_albums
-    puts '2 - List all music albums'
+    puts 'All music albums'
     alb = Albumaction.new
     alb.getmusicalbum
   end
@@ -62,7 +63,7 @@ class Choice
   end
 
   def add_book
-    puts '9 - Add a book'
+    @book_app.add_book
   end
 
   def add_music_album

@@ -39,6 +39,21 @@
         "id": 68,
         "publish_date": "2020-05-25",
         "archived": false
+      },
+      {
+        "id": 883,
+        "publish_date": "2020-05-06",
+        "archived": false
+      },
+      {
+        "id": 306,
+        "publish_date": "1999-02-28",
+        "archived": false
+      },
+      {
+        "id": 830,
+        "publish_date": "1500-05-30",
+        "archived": false
       }
     ]
   }

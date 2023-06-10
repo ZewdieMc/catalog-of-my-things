@@ -1,0 +1,60 @@
+[
+  {
+    "first_name": "Zewdie",
+    "last_name": "Habtie",
+    "items": [
+      {
+        "id": 72,
+        "publish_date": "2000-05-25",
+        "archived": false
+      },
+      {
+        "id": 717,
+        "publish_date": "1999-05-26",
+        "archived": false
+      }
+    ]
+  },
+  {
+    "first_name": "Genet",
+    "last_name": "Worku",
+    "items": [
+      {
+        "id": 644,
+        "publish_date": "2023-05-25",
+        "archived": false
+      },
+      {
+        "id": 755,
+        "publish_date": "1999-05-30",
+        "archived": false
+      }
+    ]
+  },
+  {
+    "first_name": "Jejaw",
+    "last_name": "Habtie",
+    "items": [
+      {
+        "id": 68,
+        "publish_date": "2020-05-25",
+        "archived": false
+      },
+      {
+        "id": 883,
+        "publish_date": "2020-05-06",
+        "archived": false
+      },
+      {
+        "id": 306,
+        "publish_date": "1999-02-28",
+        "archived": false
+      },
+      {
+        "id": 830,
+        "publish_date": "1500-05-30",
+        "archived": false
+      }
+    ]
+  }
+]

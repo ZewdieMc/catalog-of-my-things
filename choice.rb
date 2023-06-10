@@ -53,12 +53,12 @@ class Choice
   end
 
   def list_labels
-    puts '6 - List all labels'
+    puts "Listing all labels"
+    @book_app.list_labels
   end
 
   def list_authors
     puts '=======Authors List======='
-
     @game.list_authors
   end
 
